@@ -4,8 +4,8 @@ import cv2
 from flask import Flask, render_template, Response
 import base64
 
-app = Flask(__name__)
-vc = cv2.VideoCapture(-1)
+vc = cv2.VideoCapture(0)
+vc.isOpened()
 face_cascade = cv2.CascadeClassifier('models/haarcascade_frontalface_default.xml')
 
 detected_faces = []  # List to store detected faces
@@ -31,6 +31,7 @@ def gen_frames():
         yield (b'--frame\r\n'
                b'Content-Type: image/jpeg\r\n\r\n' + frame + b'\r\n')
 
+app = Flask(__name__)
 @app.route('/')
 def index():
     return render_template('index.html', detected_faces=detected_faces)
