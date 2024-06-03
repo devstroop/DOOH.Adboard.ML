@@ -2,7 +2,6 @@
 
 # Import libraries
 import cv2
-import numpy as np
 import dlib
 from flask import Flask, render_template, Response
 import io
