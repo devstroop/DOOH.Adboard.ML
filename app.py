@@ -23,7 +23,8 @@ def gen_frames():
             break
         
         # Detect faces
-        detected_faces = detect_faces(frame)
+        # detected_faces = detect_faces(frame)
+        detect_faces = [frame]
         
         # Encode frame as JPEG
         ret, buffer = cv2.imencode('.jpg', frame)
