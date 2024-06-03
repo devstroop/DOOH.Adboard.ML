@@ -6,8 +6,8 @@
 </head>
 <body>
     <h1>Real-time Face Detection</h1>
-    {% for face in detected_faces %}
-    <img src="data:image/jpeg;base64,{{ get_frame_with_face(face) }}" width="320" height="240">
+    {% for frame in detected_faces %}
+    <img src="data:image/jpeg;base64,{{ frame }}" width="320" height="240">
     {% endfor %}
 </body>
 </html>

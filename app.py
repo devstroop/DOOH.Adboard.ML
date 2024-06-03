@@ -23,8 +23,8 @@ def gen_frames():
             break
         
         # Detect faces
-        # detected_faces = detect_faces(frame)
-        detect_faces = [frame]
+        faces = detect_faces(frame)
+        detected_faces.append(frame)  # Append the frame to the list of detected faces
         
         # Encode frame as JPEG
         ret, buffer = cv2.imencode('.jpg', frame)
@@ -33,6 +33,7 @@ def gen_frames():
                b'Content-Type: image/jpeg\r\n\r\n' + frame + b'\r\n')
 
 app = Flask(__name__)
+
 @app.route('/')
 def index():
     return render_template('index.html', detected_faces=detected_faces)
