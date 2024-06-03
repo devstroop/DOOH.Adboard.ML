@@ -6,8 +6,7 @@ import base64
 
 app = Flask(__name__)
 vc = cv2.VideoCapture(0)
-vc2 = cv2.VideoCapture(0)
-face_cascade = cv2.CascadeClassifier(cv2.data.haarcascades + 'haarcascade_frontalface_default.xml')
+face_cascade = cv2.CascadeClassifier('models/haarcascade_frontalface_default.xml')
 
 detected_faces = []  # List to store detected faces
 
@@ -19,7 +18,7 @@ def detect_faces(frame):
 def gen_frames():
     global detected_faces
     while True:
-        ret, frame = vc2.read()
+        ret, frame = vc.read()
         if not ret:
             break
         
