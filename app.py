@@ -4,7 +4,7 @@ import cv2
 from flask import Flask, render_template, Response
 import base64
 
-vc = cv2.VideoCapture(0)
+vc = cv2.VideoCapture()
 vc.isOpened()
 face_cascade = cv2.CascadeClassifier('models/haarcascade_frontalface_default.xml')
 
