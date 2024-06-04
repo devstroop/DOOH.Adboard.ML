@@ -17,7 +17,7 @@ def detect_faces(frame):
 
 def gen_frames():
     global detected_faces
-    while True:
+    while True:      
         ret, frame = vc.read()
         if not ret:
             break
